@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Rent",
+    "amount": 2500.0,
+    "date": "2025-05-01",
+    "category": "Bills"
+  },
+  {
+    "name": "Insurance",
+    "amount": 400.0,
+    "date": "2025-05-30",
+    "category": "Bills"
+  },
+  {
+    "name": "Arcade",
+    "amount": 300.0,
+    "date": "2025-06-15",
+    "category": "Fun"
+  },
+  {
+    "name": "Rent",
+    "amount": 2500.0,
+    "date": "2025-06-01",
+    "category": "Bills"
+  },
+  {
+    "name": "Macbook",
+    "amount": 800.0,
+    "date": "2025-05-21",
+    "category": "Technology"
+  },
+  {
+    "name": "Phone",
+    "amount": 900.0,
+    "date": "2025-06-15",
+    "category": "Technology"
+  },
+  {
+    "name": "Insureance",
+    "amount": 400.0,
+    "date": "2025-04-30",
+    "category": "Bills"
+  },
+  {
+    "name": "Car",
+    "amount": 250.0,
+    "date": "2025-06-21",
+    "category": "Bills"
+  },
+  {
+    "name": "Rent",
+    "amount": 2500.0,
+    "date": "2025-06-01",
+    "category": "Bills"
+  },
+  {
+    "name": "Computer",
+    "amount": 500.0,
+    "date": "2025-06-22",
+    "category": "Technology"
+  },
+  {
+    "name": "Rent",
+    "amount": 2500.0,
+    "date": "2025-06-01",
+    "category": "Bills"
+  },
+  {
+    "name": "Screen protector",
+    "amount": 40.0,
+    "date": "2025-06-18",
+    "category": "Technology"
+  }
+]
