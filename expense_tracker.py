@@ -7,37 +7,6 @@ import ttkbootstrap as tb
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 
-# GUI - Tkinter
-window = tb.Window(themename="darkly")
-window.geometry("1500x750")
-window.title("Expenses Tracker") 
-# window.config(bg="#1e1e1e")
-window.bind("<Return>", lambda event: handle_submit())
-
-# Main Frame
-main_frame = tk.Frame(window, bg="#2c2c2c")
-main_frame.pack(anchor="w", padx=20, pady=20)
-
-# Input Frame
-input_frame = tk.Frame(main_frame, bg="#2c2c2c")
-input_frame.grid(row=0, column=0, columnspan=4, pady=(10, 20))
-
-# Input Frame
-summary_frame = tk.Frame(main_frame, bg="#2c2c2c")
-summary_frame.grid(row=0, column=4, columnspan=4, pady=(10, 20))
-
-# Button Fram
-button_frame = tk.Frame(input_frame, bg="#2c2c2c")
-button_frame.grid(row=9, column=0, columnspan=4, pady=(10, 20))
-
-# Output Frame
-output_frame = tk.Frame(main_frame, bg="#2c2c2c")
-output_frame.grid(row=0, column=9, columnspan=4)
-
-# Error message
-error_messages = tk.Label(main_frame, text="", font=("Segoe UI", 12))
-error_messages.grid(row=12, column=0, padx=10, pady=5)
-
 class Expense:
   def __init__(self, name, amount, date, category):
     self.name = name
@@ -173,65 +142,103 @@ def handle_submit():
   exp_category.delete(0, tk.END)
   error_messages.config(text="")
 
+def main():
+  # GUI - Tkinter
+  global window, main_frame, input_frame, summary_frame, button_frame, output_frame, error_messages
+  global exp_name, exp_amount, exp_date, exp_category
+  global total_label, category_label, prediction_label
 
-# Text for screen
+  window = tb.Window(themename="darkly")
+  window.geometry("1500x750")
+  window.title("Expenses Tracker") 
+  # window.config(bg="#1e1e1e")
+  window.bind("<Return>", lambda event: handle_submit())
 
-title_label = tk.Label(input_frame, text="Expense Tracker", font=("Segoe UI", 22, "bold"))
-title_label.grid(row=0, column=1, columnspan=4, pady=(20, 10))
+  # Main Frame
+  main_frame = tk.Frame(window, bg="#2c2c2c")
+  main_frame.pack(anchor="w", padx=20, pady=20)
 
-# section_label = tk.Label(main_frame, text="Enter New Expense", font=("Segoe UI", 14, "bold"), bg="#3c3c3c", fg="white", highlightthickness=0)
-# section_label.grid(row=0, column=1, columnspan=2, pady=(10, 0))
+  # Input Frame
+  input_frame = tk.Frame(main_frame, bg="#2c2c2c")
+  input_frame.grid(row=0, column=0, columnspan=4, pady=(10, 20))
 
-name_label = tk.Label(input_frame, text="Expense name", font=("Segoe UI", 12), bg="#3c3c3c", fg="white", highlightthickness=0)
-name_label.grid(row=1, column=0, padx=0, pady=5)
+  # Input Frame
+  summary_frame = tk.Frame(main_frame, bg="#2c2c2c")
+  summary_frame.grid(row=0, column=4, columnspan=4, pady=(10, 20))
 
-amount_label = tk.Label(input_frame, text="Amount", font=("Segoe UI", 12), bg="#3c3c3c", fg="white", highlightthickness=0)
-amount_label.grid(row=3, column=0, padx=0, pady=5)
+  # Button Frame
+  button_frame = tk.Frame(input_frame, bg="#2c2c2c")
+  button_frame.grid(row=9, column=0, columnspan=4, pady=(10, 20))
 
-date_label = tk.Label(input_frame, text="Date", font=("Segoe UI", 12), bg="#3c3c3c", fg="white", highlightthickness=0)
-date_label.grid(row=5, column=0, padx=0, pady=5)
+  # Output Frame
+  output_frame = tk.Frame(main_frame, bg="#2c2c2c")
+  output_frame.grid(row=0, column=9, columnspan=4)
 
-category_label = tk.Label(input_frame, text="Category", font=("Segoe UI", 12), bg="#3c3c3c", fg="white", highlightthickness=0)
-category_label.grid(row=7, column=0, padx=0, pady=5)
+  # Error message
+  error_messages = tk.Label(main_frame, text="", font=("Segoe UI", 12))
+  error_messages.grid(row=12, column=0, padx=10, pady=5)
 
-# Prompting user for expense inputs
+  # Text for screen
 
-exp_name = tk.Entry(input_frame, width=35)
-exp_name.grid(row=2, column=0, padx=10, pady=(5, 13), sticky="w", ipady=5)
+  title_label = tk.Label(input_frame, text="Expense Tracker", font=("Segoe UI", 22, "bold"))
+  title_label.grid(row=0, column=1, columnspan=4, pady=(20, 10))
 
-exp_amount = tk.Entry(input_frame, width=35)
-exp_amount.grid(row=4, column=0, padx=10, pady=(5, 13), sticky="w", ipady=5)
+  # section_label = tk.Label(main_frame, text="Enter New Expense", font=("Segoe UI", 14, "bold"), bg="#3c3c3c", fg="white", highlightthickness=0)
+  # section_label.grid(row=0, column=1, columnspan=2, pady=(10, 0))
 
-exp_date = tk.Entry(input_frame, width=35)
-exp_date.grid(row=6, column=0, padx=10, pady=(5, 13), sticky="w", ipady=5)
+  name_label = tk.Label(input_frame, text="Expense name", font=("Segoe UI", 12), bg="#3c3c3c", fg="white", highlightthickness=0)
+  name_label.grid(row=1, column=0, padx=0, pady=5)
 
-exp_category = tk.Entry(input_frame, width=35)
-exp_category.grid(row=8, column=0, padx=10, pady=(5, 13), sticky="w", ipady=5)
+  amount_label = tk.Label(input_frame, text="Amount", font=("Segoe UI", 12), bg="#3c3c3c", fg="white", highlightthickness=0)
+  amount_label.grid(row=3, column=0, padx=0, pady=5)
 
-# Submit button
+  date_label = tk.Label(input_frame, text="Date", font=("Segoe UI", 12), bg="#3c3c3c", fg="white", highlightthickness=0)
+  date_label.grid(row=5, column=0, padx=0, pady=5)
 
-enter_button = tb.Button(button_frame, text="Enter", bootstyle="secondary", command=handle_submit)
-enter_button.grid(row=9, column=0, padx=10, pady=(20, 10), sticky="ew")
+  category_label = tk.Label(input_frame, text="Category", font=("Segoe UI", 12), bg="#3c3c3c", fg="white", highlightthickness=0)
+  category_label.grid(row=7, column=0, padx=0, pady=5)
 
-# Chart button
+  # Prompting user for expense inputs
 
-chart_button = tb.Button(button_frame, text="Show Chart", bootstyle="secondary", command=lambda: show_expense_chart(expenses))
-chart_button.grid(row=9, column=1, padx=10, pady=(20, 10), sticky="ew")
+  exp_name = tk.Entry(input_frame, width=35)
+  exp_name.grid(row=2, column=0, padx=10, pady=(5, 13), sticky="w", ipady=5)
 
-# Predictive button
-predicted_button = tb.Button(button_frame, text="Predict spending for the next 3 months", bootstyle="secondary", command=lambda: predicted_spending(expenses))
-predicted_button.grid(row=9, column=2, padx=10, pady=(20, 10), sticky="ew")
+  exp_amount = tk.Entry(input_frame, width=35)
+  exp_amount.grid(row=4, column=0, padx=10, pady=(5, 13), sticky="w", ipady=5)
 
-# Total label
-total_label = tk.Label(summary_frame, text="Total spent this month will appear here", font=("Segoe UI", 16),)
-total_label.grid(row=10, column=0, padx=10, pady=(60, 10), sticky="w")
+  exp_date = tk.Entry(input_frame, width=35)
+  exp_date.grid(row=6, column=0, padx=10, pady=(5, 13), sticky="w", ipady=5)
 
-# Category label
-category_label = tk.Label(summary_frame, text="Category total will appear here", font=("Segoe UI", 16),)
-category_label.grid(row=11, column=0, padx=10, pady=(60, 10), sticky="w")
+  exp_category = tk.Entry(input_frame, width=35)
+  exp_category.grid(row=8, column=0, padx=10, pady=(5, 13), sticky="w", ipady=5)
 
-# Prediction label
-prediction_label = tk.Label(summary_frame, text="Predicted spending will appear here", font=("Segoe UI", 16),)
-prediction_label.grid(row=12, column=0, padx=10, pady=(60, 10), sticky="w")
+  # Submit button
 
-window.mainloop()
+  enter_button = tb.Button(button_frame, text="Enter", bootstyle="secondary", command=handle_submit)
+  enter_button.grid(row=9, column=0, padx=10, pady=(20, 10), sticky="ew")
+
+  # Chart button
+
+  chart_button = tb.Button(button_frame, text="Show Chart", bootstyle="secondary", command=lambda: show_expense_chart(expenses))
+  chart_button.grid(row=9, column=1, padx=10, pady=(20, 10), sticky="ew")
+
+  # Predictive button
+  predicted_button = tb.Button(button_frame, text="Predict spending for the next 3 months", bootstyle="secondary", command=lambda: predicted_spending(expenses))
+  predicted_button.grid(row=9, column=2, padx=10, pady=(20, 10), sticky="ew")
+
+  # Total label
+  total_label = tk.Label(summary_frame, text="Total spent this month will appear here", font=("Segoe UI", 16),)
+  total_label.grid(row=10, column=0, padx=10, pady=(60, 10), sticky="w")
+
+  # Category label
+  category_label = tk.Label(summary_frame, text="Category total will appear here", font=("Segoe UI", 16),)
+  category_label.grid(row=11, column=0, padx=10, pady=(60, 10), sticky="w")
+
+  # Prediction label
+  prediction_label = tk.Label(summary_frame, text="Predicted spending will appear here", font=("Segoe UI", 16),)
+  prediction_label.grid(row=12, column=0, padx=10, pady=(60, 10), sticky="w")
+
+  window.mainloop()
+
+if __name__ == "__main__":
+    main()
