@@ -1,3 +1,7 @@
+## Video Demo
+
+https://www.youtube.com/watch?v=myGbfCjv9_Q
+
 # Expense Tracker (CS50P Final Project)
 
 This is a personal expense tracking application built using Python and Tkinter. It allows users to log daily expenses, categorize them, visualize their spending habits with pie charts, and even predict future spending based on recent trends.
